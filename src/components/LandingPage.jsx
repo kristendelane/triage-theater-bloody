@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import skeletonLandingArt from '../assets/skeleton_landing_art.png';
 import './LandingPage.css';
 
-export default function LandingPage() {h
+export default function LandingPage() {
   const navigate = useNavigate();
   const audioRef = useRef(null);
   const [fadeOut, setFadeOut] = useState(false);
@@ -33,18 +33,41 @@ export default function LandingPage() {h
       {/* Heartbeat Sound */}
       <audio ref={audioRef} src="/sounds/heartbeat-faster.mp3" loop />
 
+      {/* Fade overlay for fade-to-black effect */}
+      {fadeOut && (
+        <div className="fixed inset-0 bg-black opacity-0 animate-fadeToBlack z-50" />
+      )}
+
       {/* Fade-in Skeleton Background */}
       <div
-        className="landing-container absolute inset-0 bg-cover bg-center opacity-0 animate-fadeIn slow-zoom"
+        className="landing-container absolute inset-0 bg-cover bg-center opacity-0 animate-fadeIn"
         style={{ backgroundImage: `url(${skeletonLandingArt})` }}
       >
-        {/* Invisible Buttons Go Here */}
+        {/* First Invisible Hitbox - Story Selector */}
         <div
           onClick={() => handleNavigate('/story-selector')}
-          className="absolute top-[35%] left-[29%] w-[400px] h-[140px] cursor-pointer rounded-2xl opacity-0 hover:opacity-100 hover:ring-2 hover:ring-ertan/80 hover:animate-pulse transition-all duration-300"
-          title="Enter the Medical Madness"
+          className="absolute top-[35%] left-[29%] w-[400px] h-[140px] cursor-pointer rounded-2xl opacity-0 hover:opacity-100 hover:ring-2 hover:ring-red-900 hover:animate-pulse transition-all duration-300"
+          title="Spin the Wheel of Medical Madness"
         />
-        {/* (etc etc) */}
+
+        {/* Second Invisible Hitbox - How Madness Began */}
+        <div
+          onClick={() => handleNavigate('/enter-the-madness')}
+          className="absolute top-[58%] left-[30%] w-[360px] h-[90px] cursor-pointer opacity-0 hover:opacity-100 hover:ring-2 hover:ring-red-900 hover:animate-pulse transition-all duration-300"
+          title="How the Madness Began"
+        />
+
+        {/* Third Invisible Hitbox - Enter the Hospital */}
+        <div
+          onClick={() => handleNavigate('/ambulance')}
+          className="absolute bottom-[8%] right-[8%] w-[320px] h-[80px] cursor-pointer opacity-0 hover:opacity-100 hover:ring-2 hover:ring-red-900 hover:animate-pulse transition-all duration-300"
+          title="Enter the Hospital (If You Dare)"
+        />
+
+        {/* Bloody Footer */}
+        <div className="absolute bottom-2 w-full text-center text-xs text-red-900 opacity-30 hover:opacity-70 transition-all duration-300 font-spooky">
+          Built by the sick, for the sick — because if you wait for a diagnosis, you’ll miss your own funeral.
+        </div>
       </div>
     </div>
   );
