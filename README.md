@@ -11,6 +11,24 @@ Currently, two official plugins are available:
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
-"Born from real blood, real rage, and real hospital floors.
+🩸 Triage Theater Manifesto
+This isn't fiction.
 
-Written by Wren, because if you wait for a diagnosis, you’ll miss your own funeral."
+This is a blood-soaked love letter to every chronically ill patient who's been humiliated, ignored, gaslit, misdiagnosed, overbilled, discarded, and left to rot by a system that calls itself "the best in the world."
+
+This is for the ones who learned the hard way that in the hospital lottery, there are no winners — only survivors.
+
+This game was carved out of real pain, real rage, and real nights spent bargaining with a broken body under fluorescent lights.
+
+It was built by Wren —
+A physicist, a fighter, a patient —
+Someone who lived it, bled it, and is now weaponizing it.
+
+Triage Theater isn’t haunted because it’s spooky.
+It’s haunted because it’s true.
+And because no one came to save us, we saved each other.
+
+Built by the sick. For the sick. For the ones who never got the right textbook ending.
+
+Play it loud. Play it angry.
+Most importantly: Play it alive.
