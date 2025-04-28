@@ -4,7 +4,14 @@
 
 ---
 
-🩸 **Triage Theater Manifesto**
+## 🎭 About
+
+An interactive, brutally honest hospital survival game — written by the chronically ill, for the chronically ill.
+Where the healthcare system is the final boss — and rage is the only winning move.
+
+---
+
+## 📜 Manifesto
 
 This isn’t fiction.
 
@@ -16,13 +23,15 @@ This game was carved out of real pain, real rage, and real nights spent bargaini
 
 It was built by Wren — a physicist, a fighter, a patient — someone who lived it, bled it, and is now weaponizing it.
 
-Triage Theater isn’t haunted because it’s spooky.  
-It’s haunted because it’s true.  
+Triage Theater isn’t haunted because it’s spooky.
+It’s haunted because it’s true.
 And because no one came to save us, we saved each other.
 
-Built by the sick. For the sick.  
+Built by the sick. For the sick.
 For the ones who never got the right textbook ending.
 
-Play it loud.  
-Play it angry.  
-Most importantly: **Play it alive.**
+---
+
+## ⚖️ License
+
+MIT License © Wren 
