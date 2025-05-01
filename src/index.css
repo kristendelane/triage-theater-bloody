@@ -1,3 +1,116 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background-color: black;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 2s ease-out forwards;
+}
+
+/* ─── HITBOX SYSTEM ───────────────────────────── */
+
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Let hitboxes receive clicks */
+}
+
+.menu-item {
+  position: absolute;
+  pointer-events: auto;
+}
+
+.hitbox {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 0, 0, 0.2); /* Visible red overlay for dev */
+  border: 1px solid rgba(255, 0, 0, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.circular-hitbox {
+  border-radius: 50%;
+}
+
+/* ─── EASTER EGG WHISPER ───────────────────────── */
+
+.easter-egg {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 0.9rem;
+  color: #ff6b6b;
+  opacity: 0.4;
+  font-family: monospace;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.easter-egg:hover {
+  opacity: 1;
+  text-shadow: 0 0 6px red;
+  transform: scale(1.03);
+}
+
+/* ─── GLITCH TEXT (optional if used) ───────────── */
+
+.glitch-hover {
+  position: relative;
+  color: #ff6b6b;
+  font-weight: bold;
+  font-size: 1.5rem;
+  font-family: monospace;
+  display: inline-block;
+}
+
+.glitch-hover::before,
+.glitch-hover::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0.8;
+  clip: rect(0, 0, 0, 0);
+}
+
+.glitch-hover::before {
+  animation: glitchTop 1s infinite linear alternate;
+  color: #ff0000;
+  transform: translate(-1px, -1px);
+}
+
+.glitch-hover::after {
+  animation: glitchBottom 1s infinite linear alternate;
+  color: #ff69b4;
+  transform: translate(1px, 1px);
+}
+
+@keyframes glitchTop {
+  0% { clip: rect(0, 9999px, 0, 0); }
+  20% { clip: rect(0, 9999px, 10px, 0); }
+  40% { clip: rect(5px, 9999px, 15px, 0); }
+  60% { clip: rect(10px, 9999px, 20px, 0); }
+  80% { clip: rect(5px, 9999px, 25px, 0); }
+  100% { clip: rect(0, 9999px, 0, 0); }
+}
+
+@keyframes glitchBottom {
+  0% { clip: rect(0, 9999px, 0, 0); }
+  20% { clip: rect(0, 9999px, 8px, 0); }
+  40% { clip: rect(3px, 9999px, 13px, 0); }
+  60% { clip: rect(8px, 9999px, 18px, 0); }
+  80% { clip: rect(2px, 9999px, 22px, 0); }
+  100% { clip: rect(0, 9999px, 0, 0); }
+}

@@ -1,72 +1,137 @@
-// src/components/LandingPage.jsx
-
-import React, { useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import skeletonLandingArt from '../assets/skeleton_landing_art.png';
-import './LandingPage.css';
+import React from 'react';
 
 export default function LandingPage() {
-  const navigate = useNavigate();
-  const audioRef = useRef(null);
-  const [fadeOut, setFadeOut] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      if (audioRef.current) {
-        audioRef.current.volume = 0.2;
-        audioRef.current.play().catch((error) => {
-          console.log('Audio playback blocked until interaction:', error);
-        });
-      }
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  const handleNavigate = (path) => {
-    setFadeOut(true);
-    setTimeout(() => navigate(path), 1000); // Delay navigation to allow fade effect
-  };
-
   return (
-    <div className="relative min-h-screen bg-black">
-      {/* Heartbeat Sound */}
-      <audio ref={audioRef} src="/sounds/heartbeat-faster.mp3" loop />
+    <div
+      className="landing-container animate-fade-in"
+      style={{
+        position: 'relative',
+        width: '100%',
+        minHeight: '100vh',
+        backgroundColor: 'black',
+      }}
+    >
+      <img
+        src="/assets/skeleton_landing_art.png"
+        alt="Skeleton rising from the abyss"
+        style={{
+          maxWidth: '800px',
+          width: '100%',
+          height: 'auto',
+          display: 'block',
+          margin: '0 auto',
+        }}
+      />
 
-      {/* Fade overlay for fade-to-black effect */}
-      {fadeOut && (
-        <div className="fixed inset-0 bg-black opacity-0 animate-fadeToBlack z-50" />
-      )}
+      <div className="menu">
+        {/* 1. Spin the Wheel — DO NOT TOUCH */}
+        <div
+          className="menu-item"
+          style={{
+            top: '76%',
+            left: '49%',
+            width: '201px',
+            height: '100px',
+          }}
+        >
+          <button
+            className="hitbox"
+            onClick={() => window.location.href = '/stories/wheel-of-madness'}
+            aria-label="Spin the Wheel-Medical Madness"
+            title="Spin the Wheel-Medical Madness"
+          />
+        </div>
 
-      {/* Fade-in Skeleton Background */}
+        {/* 2. Sticky Note — Enter the Madness */}
+        <div
+          className="menu-item"
+          style={{
+            top: '79.5%',
+            left: '68.5%',
+            width: '140px',
+            height: '140px',
+          }}
+        >
+          <button
+            className="hitbox"
+            onClick={() => window.location.href = '/stories/story-selector'}
+            aria-label="Enter the Madness"
+            title="Enter the Madness"
+          />
+        </div>
+
+        {/* 3. Skeleton Right Eye — Dr. Amal */}
+        <div
+          className="menu-item circular-hitbox"
+          style={{
+            top: '41%',
+            left: '34%',
+            width: '40px',
+            height: '40px',
+          }}
+        >
+          <button
+            className="hitbox circular-hitbox"
+            onClick={() => window.location.href = '/stories/dr-amal'}
+            aria-label="You shouldn't be here"
+            title="You shouldn't be here"
+          />
+        </div>
+
+        {/* 5. Nurse Call Button — Backstory */}
+        <div
+          className="menu-item circular-hitbox"
+          style={{
+            top: '85%',
+            left: '58%',
+            width: '40px',
+            height: '40px',
+          }}
+        >
+          <button
+            className="hitbox circular-hitbox"
+            onClick={() => window.location.href = '/stories/backstory-coming-soon'}
+            aria-label="My cursed origin"
+            title="The cursed origin story"
+          />
+        </div>
+
+        {/* 6. Corner Curse Chart — Top Left */}
+        <div
+          className="menu-item"
+          style={{
+            top: '3%',
+            left: '3%',
+            width: '30px',
+            height: '30px',
+          }}
+        >
+          <button
+            className="hitbox"
+            onClick={() => window.location.href = '/stories/curse-chart'}
+            aria-label="Curse Chart"
+            title="Curse Chart"
+          />
+        </div>
+      </div>
+
+      {/* 4. Whisper Text + Hidden Hitbox */}
       <div
-        className="landing-container absolute inset-0 bg-cover bg-center opacity-0 animate-fadeIn"
-        style={{ backgroundImage: `url(${skeletonLandingArt})` }}
+        className="easter-egg-wrapper"
+        style={{
+          position: 'absolute',
+          bottom: '20px',
+          right: '24px',
+          width: '260px',
+          height: '30px',
+          zIndex: 20,
+        }}
+        onClick={() => window.location.href = '/stories/enter-if-you-dare'}
+        title="Enter the hospital if you dare"
       >
-        {/* First Invisible Hitbox - Story Selector */}
-        <div
-          onClick={() => handleNavigate('/story-selector')}
-          className="absolute top-[35%] left-[29%] w-[400px] h-[140px] cursor-pointer rounded-2xl opacity-0 hover:opacity-100 hover:ring-2 hover:ring-red-900 hover:animate-pulse transition-all duration-300"
-          title="Spin the Wheel of Medical Madness"
-        />
-
-        {/* Second Invisible Hitbox - How Madness Began */}
-        <div
-          onClick={() => handleNavigate('/enter-the-madness')}
-          className="absolute top-[58%] left-[30%] w-[360px] h-[90px] cursor-pointer opacity-0 hover:opacity-100 hover:ring-2 hover:ring-red-900 hover:animate-pulse transition-all duration-300"
-          title="How the Madness Began"
-        />
-
-        {/* Third Invisible Hitbox - Enter the Hospital */}
-        <div
-          onClick={() => handleNavigate('/ambulance')}
-          className="absolute bottom-[8%] right-[8%] w-[320px] h-[80px] cursor-pointer opacity-0 hover:opacity-100 hover:ring-2 hover:ring-red-900 hover:animate-pulse transition-all duration-300"
-          title="Enter the Hospital (If You Dare)"
-        />
-
-        {/* Bloody Footer */}
-        <div className="absolute bottom-2 w-full text-center text-xs text-red-900 opacity-30 hover:opacity-70 transition-all duration-300 font-spooky">
-          Built by the sick, for the sick — because if you wait for a diagnosis, you’ll miss your own funeral.
+        <div className="hitbox" />
+        <div className="easter-egg">
+          Enter the hospital if you dare...
         </div>
       </div>
     </div>

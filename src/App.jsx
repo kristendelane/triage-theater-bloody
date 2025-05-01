@@ -1,17 +1,16 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from './components/LandingPage';
-import StorySelector from './components/StorySelector';
-import StoryIntro from './components/StoryIntro';
-import AmbulanceIntro from './components/AmbulanceIntro'; // <-- ADD THIS
-
+import DrAmalStory from './components/DrAmalStory';
+import CurseChart from './components/CursedChart';
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/story-selector" element={<StorySelector />} />
-      <Route path="/enter-the-madness" element={<StoryIntro />} />
-      <Route path="/ambulance" element={<AmbulanceIntro />} /> {/* <-- FIXED */}
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/dr-amal" element={<DrAmalStory />} />
+        <Route path="/curse-chart" element={<CurseChart />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

@@ -24,14 +24,15 @@ const stories = [
   { title: "📦 Insurance Denial Speedrun", note: "Coming soon — pending prior auth, appeals, and a blood pact." },
   { title: "📉 Tube Exchange #16", note: "Coming soon — assuming the right size isn't on backorder." },
   { title: "👻 The Abandonment Arc", note: "Coming soon — everyone else already ghosted." },
-  { title: "🚘 Transport Never Came", note: "Coming soon — maybe the Uber will show up this time." },
   { title: "🌙 Night Shift, Day Shift", note: "Coming soon — if the night doc ever calls back." },
   { title: "🧻 The Bathroom Breakdown", note: "Coming soon — in a stall near you." },
   { title: "📝 The Note", note: "Coming soon — but someone already called 911." },
   { title: "🏛️ The Parliamentary Collapse", note: "Coming soon — democracy isn't the only thing fainting." },
   { title: "🏥 The Long COVID Odyssey", note: "Coming soon — probably post-viral delay." },
   { title: "🏊 The Olympic Struggle", note: "Coming soon — still stretching through the flare." },
-  { title: "🫂 Both of Us Are Sick", note: "Coming soon — once one of us can stand up." }
+  { title: "🫂 Both of Us Are Sick", note: "Coming soon — once one of us can stand up." },
+  { title: "🩸 Rounds: The Fall of Dr. Amal", note: "Now live — the discharge that killed you and the karma that followed." },
+
 ];
 
 // Main functional component for story selector
@@ -61,11 +62,11 @@ export default function StorySelector() {
         {/* Grid layout for story cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {stories.map((story, index) => {
-            if (story.title.includes("Ambulance")) {
-              // Only Ambulance story is clickable for now
+            if (story.title.includes("Ambulance") || story.title.includes("Amal")) {
+              const linkTarget = story.title.includes("Ambulance") ? "/ambulance" : "/dr-amal";
               return (
-                <Link to="/ambulance" key={index} className="block">
-                  <div className="bg-ertan/70 p-4 rounded-xl shadow hover:bg-ertan/90 hover:scale-[1.02] hover:ring-2 hover:ring-red-600 transition-all duration-200">
+                <Link to={linkTarget} key={index} className="block">
+                  <div className="story-card">
                     <p className="text-sm font-semibold">
                       {story.title}
                       {story.note && (
