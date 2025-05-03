@@ -1,27 +1,29 @@
-html, body, #root {
+.locked-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.image-stage {
+  position: relative;
+  width: 1102px;
+  height: 768px;
+  background: black;
+}
+
+.locked-image {
+  width: 100%;
   height: 100%;
-  margin: 0;
-  background-color: black;
+  display: block;
+  position: relative;
+  z-index: 1;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-.animate-fade-in {
-  animation: fadeIn 2s ease-out forwards;
-}
-
-/* Optional: developer hitbox border for debugging */
-.dev-hitbox {
-  border: 1px solid rgba(255, 0, 0, 0.4);
-  background: rgba(255, 0, 0, 0.2);
-  z-index: 10;
-}
-
-/* Prevent the landing image from zooming into hell */
-.skeleton-image {
-  max-height: 100vh;
-  object-fit: cover;
+.hitbox {
+  position: absolute;
+  cursor: pointer;
 }
