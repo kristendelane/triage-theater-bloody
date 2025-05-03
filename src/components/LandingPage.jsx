@@ -1,139 +1,137 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
+import "../index.css";
+
+const skeletonArt = "/assets/skeleton_landing_art.png";
+const flatlineAudio = new Audio("/assets/flatline.mp3");
+
+const randomizedTooltips = [
+  "this sticky note is a psych consult now",
+  "your copay was your soul",
+  "you were flagged in the system",
+  "still think it's just anxiety?",
+  "they’re watching from the nurse’s station",
+  "Room 237 is available… for you",
+  "there’s no discharge plan",
+];
+
+function randomTooltip() {
+  return randomizedTooltips[Math.floor(Math.random() * randomizedTooltips.length)];
+}
 
 export default function LandingPage() {
+  const handleHauntedChart = () => {
+    flatlineAudio.play();
+    setTimeout(() => {
+      window.location.href = "/haunted-chart";
+    }, 2000);
+  };
+
   return (
-    <div
-      className="landing-container animate-fade-in"
-      style={{
-        position: 'relative',
-        width: '100%',
-        minHeight: '100vh',
-        backgroundColor: 'black',
-      }}
-    >
+    <div className="landing-container relative animate-fade-in">
+      {/* Background Image */}
       <img
-        src="/assets/skeleton_landing_art.png"
+        src={skeletonArt}
         alt="Skeleton rising from the abyss"
-        style={{
-          maxWidth: '800px',
-          width: '100%',
-          height: 'auto',
-          display: 'block',
-          margin: '0 auto',
-        }}
+        className="skeleton-image w-full object-cover"
       />
 
-      <div className="menu">
-        {/* 1. Spin the Wheel — DO NOT TOUCH */}
-        <div
-          className="menu-item"
-          style={{
-            top: '76%',
-            left: '49%',
-            width: '201px',
-            height: '100px',
-          }}
-        >
-          <button
-            className="hitbox"
-            onClick={() => window.location.href = '/stories/wheel-of-madness'}
-            aria-label="Spin the Wheel-Medical Madness"
-            title="Spin the Wheel-Medical Madness"
-          />
-        </div>
-
-        {/* 2. Sticky Note — Enter the Madness */}
-        <div
-          className="menu-item"
-          style={{
-            top: '79.5%',
-            left: '68.5%',
-            width: '140px',
-            height: '140px',
-          }}
-        >
-          <button
-            className="hitbox"
-            onClick={() => window.location.href = '/stories/story-selector'}
-            aria-label="Enter the Madness"
-            title="Enter the Madness"
-          />
-        </div>
-
-        {/* 3. Skeleton Right Eye — Dr. Amal */}
-        <div
-          className="menu-item circular-hitbox"
-          style={{
-            top: '41%',
-            left: '34%',
-            width: '40px',
-            height: '40px',
-          }}
-        >
-          <button
-            className="hitbox circular-hitbox"
-            onClick={() => window.location.href = '/stories/dr-amal'}
-            aria-label="You shouldn't be here"
-            title="You shouldn't be here"
-          />
-        </div>
-
-        {/* 5. Nurse Call Button — Backstory */}
-        <div
-          className="menu-item circular-hitbox"
-          style={{
-            top: '85%',
-            left: '58%',
-            width: '40px',
-            height: '40px',
-          }}
-        >
-          <button
-            className="hitbox circular-hitbox"
-            onClick={() => window.location.href = '/stories/backstory-coming-soon'}
-            aria-label="My cursed origin"
-            title="The cursed origin story"
-          />
-        </div>
-
-        {/* 6. Corner Curse Chart — Top Left */}
-        <div
-          className="menu-item"
-          style={{
-            top: '3%',
-            left: '3%',
-            width: '30px',
-            height: '30px',
-          }}
-        >
-          <button
-            className="hitbox"
-            onClick={() => window.location.href = '/stories/curse-chart'}
-            aria-label="Curse Chart"
-            title="Curse Chart"
-          />
-        </div>
-      </div>
-
-      {/* 4. Whisper Text + Hidden Hitbox */}
-      <div
-        className="easter-egg-wrapper"
+      {/* 1 */}
+      <Link
+        to="/StorySelector"
+        title={randomTooltip()}
+        className="absolute dev-hitbox flex items-center justify-center text-white text-xs"
         style={{
-          position: 'absolute',
-          bottom: '20px',
-          right: '24px',
-          width: '260px',
-          height: '30px',
-          zIndex: 20,
+          top: "44%",
+          left: "70%",
+          width: "160px",
+          height: "70px",
+          zIndex: 10,
         }}
-        onClick={() => window.location.href = '/stories/enter-if-you-dare'}
-        title="Enter the hospital if you dare"
       >
-        <div className="hitbox" />
-        <div className="easter-egg">
-          Enter the hospital if you dare...
-        </div>
-      </div>
+        1
+      </Link>
+
+      {/* 2 */}
+      <Link
+        to="/StoryIntro"
+        title={randomTooltip()}
+        className="absolute group dev-hitbox flex items-center justify-center text-white text-xs"
+        style={{
+          top: "82%",
+          left: "58%",
+          width: "160px",
+          height: "50px",
+          zIndex: 10,
+        }}
+      >
+        2
+      </Link>
+
+      {/* 3 */}
+      <Link
+        to="/forbidden"
+        title={randomTooltip()}
+        className="absolute rounded-full dev-hitbox flex items-center justify-center text-white text-xs"
+        style={{
+          top: "22%",
+          left: "61%",
+          width: "32px",
+          height: "32px",
+          zIndex: 10,
+        }}
+      >
+        3
+      </Link>
+
+      {/* 4 */}
+      <Link
+        to="/void"
+        title={randomTooltip()}
+        className="absolute dev-hitbox flex items-center justify-center text-white text-xs"
+        style={{
+          top: "12%",
+          left: "20%",
+          width: "60px",
+          height: "60px",
+          zIndex: 10,
+        }}
+      >
+        4
+      </Link>
+
+      {/* 5 */}
+      <Link
+        to="/ambulance-argument"
+        title={randomTooltip()}
+        className="absolute rounded-full dev-hitbox flex items-center justify-center text-white text-xs"
+        style={{
+          top: "67%",
+          left: "48%",
+          width: "64px",
+          height: "64px",
+          zIndex: 10,
+        }}
+      >
+        5
+      </Link>
+
+      {/* 6 */}
+      <button
+        onClick={handleHauntedChart}
+        title={randomTooltip()}
+        className="absolute dev-hitbox flex items-center justify-center text-white text-xs"
+        style={{
+          top: "8%",
+          left: "88%",
+          width: "42px",
+          height: "42px",
+          zIndex: 10,
+        }}
+        aria-label="Trigger cursed chart event"
+      >
+        6
+      </button>
     </div>
   );
 }
