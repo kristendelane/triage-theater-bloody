@@ -32,6 +32,34 @@ For the ones who never got the right textbook ending.
 
 ---
 
+## 🧱 This Build: Bloody Landing Page
+
+This version includes a fully locked, non-responsive 1152×768 landing page.
+
+### 🧩 Features
+- 💀 Skeleton background, centered and uncropped
+- 🔒 All layout is fixed with pixel-based hitboxes
+- 🎯 5 working hitboxes:
+  - “Spin the Wheel” button
+  - Sticky note “Enter”
+  - Creepy whisper text (bottom right)
+  - Right eye socket (hover says “You shouldn’t be here…”)
+  - Top-left Easter egg
+
+### 🛠️ Tech Stack
+- Static HTML + CSS
+- No frameworks
+- No build system required
+- Opens directly in browser
+
+---
+
+### 👻 Contribute (If You Dare)
+Fork this repo. Add your own storylines, jump scares, haunted PDFs, TikTok influencer arcs, and more.
+
+Or just scream into the HTML. We get it.
+
+
 ## ⚖️ License
 
 MIT License © Wren 
